@@ -26,8 +26,12 @@ Thumbs.db
 # Neo4j local artifacts
 .Neo4jDesktop*/
 
-# Large generated files that can be reproduced
-data/processed/
+# Task 2: Large generated files that can be reproduced
+task2/data/processed/
 
-# Raw dataset
-data/*.csv
+# Task 2: Raw dataset
+task2/data/*.csv
+
+# Task 1: CIFAR-10 dataset cache
+task1/data/cifar-10-batches-py/
+task1/data/*.tar.gz

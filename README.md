@@ -1,112 +1,47 @@
-# 电影知识图谱
+# SYSU Big Data Assignments 🎓
 
-这是一个基于 TMDB 5000 电影数据集构建的小型电影领域知识图谱项目。
+这个仓库用于整合和记录我在中山大学（SYSU）大数据课程中的所有作业和项目代码。
 
-工作流程包括：
+## 📂 目录结构
 
-- 解析电影元数据和演职人员结构化数据
-- 使用 spaCy 对电影简介（overview）进行命名实体识别
-- 在 Neo4j 中构建和可视化图谱
+| 任务目录 | 描述说明 | 主要技术栈 |
+| :--- | :--- | :--- |
+| [**`task1/`**](./task1) | 大数据作业任务一：图像边缘检测与分类对比实验 | 🐍 Python · OpenCV · PyTorch · Scikit-learn |
+| [**`task2/`**](./task2) | 大数据作业任务二：电影知识图谱构建与可视化 | 🐍 Python · spaCy · 🕸️ Cypher (Neo4j) |
 
-## 数据集
+## 📋 各任务简介
 
-数据来源：
+### Task 1 — 图像边缘检测与分类
+使用 Sobel 算子进行图像边缘检测，并在 CIFAR-10 数据集上对比传统机器学习（SVM、随机森林）与深度学习（MLP、ResNet18）的分类精度与计算效率。
 
-- TMDB 5000 电影数据集 (TMDB 5000 Movie Dataset)
-- https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+- 📄 [实验报告](./task1/实验报告.md)
+- 📁 [源代码](./task1/src/)
 
-主要文件：
+### Task 2 — 电影知识图谱
+基于 TMDB 5000 电影数据集，使用 spaCy 命名实体识别提取实体，并在 Neo4j 中构建和可视化电影领域知识图谱。
 
-- `data/tmdb_5000_movies.csv`
-- `data/tmdb_5000_credits.csv`
+- 📄 [实验报告](./task2/report/实验报告.md)
+- 📁 [源代码](./task2/src/)
 
-注意：
+## 🚀 完成进度
 
-- 默认情况下原始数据集不包含在代码仓库中
-- 请从 Kaggle 手动下载数据集，并将 CSV 文件放入 `data/` 目录中
+- [x] Task 1：图像边缘检测与分类对比实验
+- [x] Task 2：电影知识图谱构建与可视化
+- [ ] 待更新后续作业...
 
-## 图谱模式 (Graph Schema)
+## 🛠️ 环境配置
 
-节点标签 (Node labels)：
+每个任务目录下均有独立的 `requirements.txt`，请参考各子目录的 `README.md` 进行环境配置。
 
-- `Movie`
-- `Person`
-- `Genre`
-- `OverviewEntity`
-
-关系类型 (Relationship types)：
-
-- `(:Person)-[:ACTED_IN]->(:Movie)`
-- `(:Person)-[:DIRECTED]->(:Movie)`
-- `(:Movie)-[:BELONGS_TO]->(:Genre)`
-- `(:Movie)-[:MENTIONS]->(:OverviewEntity)`
-
-## 项目结构
-
-- `src/preprocess.py`: 解析原始 CSV 文件并生成图表
-- `src/extract_overview_entities.py`: 使用 spaCy 从 `overview` 提取实体
-- `src/neo4j_import.cypher`: 将节点和关系导入 Neo4j
-- `data/processed/`: 生成的节点表和边表
-- `report/实验报告.md`: 实验报告
-- `asset/`: 实验报告中使用的截图
-
-## 环境要求
-
-- Python 3.12+
-- Neo4j Desktop / Neo4j Browser
-
-安装依赖：
-
+**Task 1（推荐使用 Conda 管理环境）：**
 ```bash
-pip install -r requirements.txt
+conda create -n bigdata_task1 python=3.10
+conda activate bigdata_task1
+pip install -r task1/requirements.txt
+```
+
+**Task 2：**
+```bash
+pip install -r task2/requirements.txt
 python -m spacy download en_core_web_sm
 ```
-
-## 使用方法
-
-1. 生成结构化的节点表和边表：
-
-```bash
-python src/preprocess.py
-```
-
-2. 使用 spaCy 提取简介中的实体：
-
-```bash
-python src/extract_overview_entities.py
-```
-
-3. 将 `data/processed/` 目录下生成的 CSV 文件复制到 Neo4j 数据库的 `import` 目录。
-
-4. 运行 `src/neo4j_import.cypher` 中的 Cypher 语句完成导入。
-
-## 代码仓库说明
-
-本代码仓库仅保留源代码、实验报告和截图。
-
-为避免上传过多可复现的大文件，通常不提交以下内容：
-
-- 原始数据集文件
-- `data/processed/` 下生成的文件
-
-## 输出结果统计
-
-当前图谱统计：
-
-- `Movie`（电影）: 4803
-- `Person`（人物）: 56603
-- `Genre`（类型）: 20
-- `OverviewEntity`（简介实体）: 9331
-
-Relationships:
-
-- `ACTED_IN`: 106084
-- `DIRECTED`: 5166
-- `BELONGS_TO`: 12160
-- `MENTIONS`: 14487
-
-## Report
-
-The final report is available at:
-
-- `report/实验报告.md`
