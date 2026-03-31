@@ -8,6 +8,7 @@
 | :--- | :--- | :--- |
 | [**`task1/`**](./task1) | 大数据作业任务一：图像边缘检测与分类对比实验 | Python · OpenCV · PyTorch · Scikit-learn |
 | [**`task2/`**](./task2) | 大数据作业任务二：电影知识图谱构建与可视化 | Python · spaCy · Cypher (Neo4j) |
+| [**`task3/`**](./task3) | 大数据作业任务三：K-means 与 DBSCAN 聚类算法对比实验 | Python · NumPy · SciPy · scikit-learn · Matplotlib |
 
 ## 各任务简介
 
@@ -23,11 +24,17 @@
 - [实验报告](./task2/report/实验报告.md)
 - [源代码](./task2/src/)
 
+### Task 3 — 聚类算法对比实验
+在 Iris 数据集上手写实现 K-means 与 DBSCAN 核心逻辑，进行超参数扫描，并使用准确率、轮廓系数与 Calinski-Harabasz 指数进行评估对比。
+
+- [实验报告](./task3/report/实验报告.md)
+- [源代码](./task3/src/)
+
 ## 完成进度
 
 - [x] Task 1：图像边缘检测与分类对比实验
 - [x] Task 2：电影知识图谱构建与可视化
-- [ ] 待更新后续作业...
+- [x] Task 3：K-means 与 DBSCAN 聚类算法对比实验
 
 ## 环境配置
 
@@ -44,4 +51,11 @@ pip install -r task1/requirements.txt
 ```bash
 pip install -r task2/requirements.txt
 python -m spacy download en_core_web_sm
+```
+
+**Task 3：**
+```bash
+pip install -r task3/requirements.txt
+python task3/src/main.py
+python task3/src/sweep.py
 ```

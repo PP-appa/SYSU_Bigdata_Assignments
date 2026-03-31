@@ -1,0 +1,29 @@
+{
+  "kmeans": {
+    "params": {
+      "k": 3,
+      "max_iter": 300,
+      "tol": 0.0001
+    },
+    "metrics": {
+      "accuracy": 0.8333333333333334,
+      "silhouette": 0.45994823920518635,
+      "calinski_harabasz": 241.90440170183157,
+      "n_clusters": 3,
+      "n_noise": 0
+    }
+  },
+  "dbscan": {
+    "params": {
+      "eps": 0.6,
+      "min_samples": 5
+    },
+    "metrics": {
+      "accuracy": 0.7096774193548387,
+      "silhouette": 0.6418946941661956,
+      "calinski_harabasz": 330.9165416576153,
+      "n_clusters": 2,
+      "n_noise": 26
+    }
+  }
+}
