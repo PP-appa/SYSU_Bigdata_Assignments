@@ -1,61 +1,82 @@
 # SYSU Big Data Assignments
 
-这个仓库用于整合和记录我在中山大学（SYSU）大数据课程中的所有作业和项目代码。
+本仓库用于整理和记录中山大学大数据课程的各次作业代码、实验报告和相关结果文件。
 
 ## 目录结构
 
-| 任务目录 | 描述说明 | 主要技术栈 |
-| :--- | :--- | :--- |
-| [**`task1/`**](./task1) | 大数据作业任务一：图像边缘检测与分类对比实验 | Python · OpenCV · PyTorch · Scikit-learn |
-| [**`task2/`**](./task2) | 大数据作业任务二：电影知识图谱构建与可视化 | Python · spaCy · Cypher (Neo4j) |
-| [**`task3/`**](./task3) | 大数据作业任务三：K-means 与 DBSCAN 聚类算法对比实验 | Python · NumPy · SciPy · scikit-learn · Matplotlib |
+| 任务目录 | 内容说明 | 主要技术 |
+| --- | --- | --- |
+| [task1/](./task1) | 图像边缘检测与图像分类对比实验 | Python, OpenCV, PyTorch, scikit-learn |
+| [task2/](./task2) | 基于 TMDB 数据集的电影知识图谱构建 | Python, spaCy, Neo4j, Cypher |
+| [task3/](./task3) | K-means 与 DBSCAN 聚类算法实现与对比 | Python, NumPy, SciPy, scikit-learn, Matplotlib |
+| [task4/](./task4) | IMDB 电影评论情感分类实验 | Python, Hugging Face Datasets, scikit-learn, PyTorch |
 
 ## 各任务简介
 
-### Task 1 — 图像边缘检测与分类
-使用 Sobel 算子进行图像边缘检测，并在 CIFAR-10 数据集上对比传统机器学习（SVM、随机森林）与深度学习（MLP、ResNet18）的分类精度与计算效率。
+### Task 1
 
-- [实验报告](./task1/实验报告.md)
-- [源代码](./task1/src/)
+使用 Sobel 算子进行图像边缘检测，并在 CIFAR-10 数据集上对比传统机器学习方法与深度学习方法的分类效果。
 
-### Task 2 — 电影知识图谱
-基于 TMDB 5000 电影数据集，使用 spaCy 命名实体识别提取实体，并在 Neo4j 中构建和可视化电影领域知识图谱。
+- [README](./task1/README.md)
+- [Report](./task1/实验报告.md)
+- [Source](./task1/src/)
 
-- [实验报告](./task2/report/实验报告.md)
-- [源代码](./task2/src/)
+### Task 2
 
-### Task 3 — 聚类算法对比实验
-在 Iris 数据集上手写实现 K-means 与 DBSCAN 核心逻辑，进行超参数扫描，并使用准确率、轮廓系数与 Calinski-Harabasz 指数进行评估对比。
+基于 TMDB 5000 电影数据集，提取实体与关系，并在 Neo4j 中构建电影知识图谱。
 
-- [实验报告](./task3/report/实验报告.md)
-- [源代码](./task3/src/)
+- [README](./task2/README.md)
+- [Report](./task2/report/实验报告.md)
+- [Source](./task2/src/)
 
-## 完成进度
+### Task 3
 
-- [x] Task 1：图像边缘检测与分类对比实验
-- [x] Task 2：电影知识图谱构建与可视化
-- [x] Task 3：K-means 与 DBSCAN 聚类算法对比实验
+在 Iris 数据集上实现 K-means 和 DBSCAN，并通过多项聚类指标进行参数扫描和实验分析。
+
+- [README](./task3/README.md)
+- [Report](./task3/report/实验报告.md)
+- [Source](./task3/src/)
+
+### Task 4
+
+基于 IMDB 电影评论数据集，比较 `TF-IDF + Logistic Regression`、`TF-IDF + LinearSVC` 和 `Embedding + LSTM` 三种情感分类方案。
+
+- [README](./task4/README.md)
+- [Report](./task4/report/实验报告.md)
+- [Source](./task4/src/)
 
 ## 环境配置
 
-每个任务目录下均有独立的 `requirements.txt`，请参考各子目录的 `README.md` 进行环境配置。
+各任务目录均包含独立的 `requirements.txt`，请进入对应目录后按需安装依赖。
 
-**Task 1（推荐使用 Conda 管理环境）：**
+### Task 1
+
 ```bash
 conda create -n bigdata_task1 python=3.10
 conda activate bigdata_task1
 pip install -r task1/requirements.txt
 ```
 
-**Task 2：**
+### Task 2
+
 ```bash
 pip install -r task2/requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
-**Task 3：**
+### Task 3
+
 ```bash
 pip install -r task3/requirements.txt
 python task3/src/main.py
 python task3/src/sweep.py
+```
+
+### Task 4
+
+```bash
+pip install -r task4/requirements.txt
+python task4/train_tfidf_lr.py
+python task4/train_tfidf_svm.py
+python task4/train_rnn.py
 ```
