@@ -23,6 +23,10 @@ Thumbs.db
 # Logs
 *.log
 
+# Local agent configuration
+.codex/
+AGENT.md
+
 # Neo4j local artifacts
 .Neo4jDesktop*/
 
