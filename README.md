@@ -10,6 +10,7 @@
 | [task2/](./task2) | 基于 TMDB 数据集的电影知识图谱构建 | Python, spaCy, Neo4j, Cypher |
 | [task3/](./task3) | K-means 与 DBSCAN 聚类算法实现与对比 | Python, NumPy, SciPy, scikit-learn, Matplotlib |
 | [task4/](./task4) | IMDB 电影评论情感分类实验 | Python, Hugging Face Datasets, scikit-learn, PyTorch |
+| [task5/](./task5) | 股票价格预测：ARIMA 与 LSTM 未来 7 日收盘价预测对比 | Python, pandas, statsmodels, PyTorch |
 
 ## 各任务简介
 
@@ -45,6 +46,14 @@
 - [Report](./task4/report/实验报告.md)
 - [Source](./task4/src/)
 
+### Task 5
+
+使用贵州茅台历史股价 CSV 数据，分别使用 `ARIMA` 和 `LSTM` 对未来 `7` 个交易日收盘价进行预测，并通过 `MAE` 和 `RMSE` 对比两种方法的效果。
+
+- [README](./task5/README.md)
+- [Report](./task5/report/实验报告.md)
+- [Source](./task5/src/)
+
 ## 环境配置
 
 各任务目录均包含独立的 `requirements.txt`，请进入对应目录后按需安装依赖。
@@ -79,4 +88,13 @@ pip install -r task4/requirements.txt
 python task4/train_tfidf_lr.py
 python task4/train_tfidf_svm.py
 python task4/train_rnn.py
+```
+
+### Task 5
+
+```bash
+pip install -r task5/requirements.txt
+python task5/train_arima.py --data-path task5/data/maotai_600519_qfq.csv
+python task5/train_lstm.py --data-path task5/data/maotai_600519_qfq.csv
+python task5/compare_models.py
 ```
