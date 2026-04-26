@@ -1,0 +1,7 @@
+{
+  "model_name": "task6/model/vilt-vqa",
+  "image": "task6\\examples\\test_image3.png",
+  "question": "What is the name shown in the center?",
+  "answer": "nokia",
+  "device": "cuda"
+}

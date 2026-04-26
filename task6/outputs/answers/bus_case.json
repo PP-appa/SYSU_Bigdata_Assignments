@@ -1,0 +1,7 @@
+{
+  "model_name": "task6/model/vilt-vqa",
+  "image": "task6/examples/YellowSchoolBus2.jpg",
+  "question": "What color is the bus?",
+  "answer": "yellow",
+  "device": "cuda"
+}

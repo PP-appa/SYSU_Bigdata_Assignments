@@ -39,3 +39,10 @@ task2/data/*.csv
 # Task 1: CIFAR-10 dataset cache
 task1/data/cifar-10-batches-py/
 task1/data/*.tar.gz
+
+# Task 6: local model cache
+task6/model/
+
+# Task 7: MovieLens dataset cache
+task7/data/ml-latest-small/
+task7/data/ml-latest-small.zip

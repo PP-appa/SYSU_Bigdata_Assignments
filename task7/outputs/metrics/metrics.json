@@ -1,0 +1,16 @@
+{
+  "dataset": "MovieLens ml-latest-small",
+  "num_ratings": 100836,
+  "num_users": 610,
+  "num_movies": 9742,
+  "split": "leave-one-out latest positive rating per user",
+  "top_k": 10,
+  "candidate_k": 100,
+  "min_positive_rating": 4.0,
+  "hybrid_alpha": 0.7,
+  "recall": {
+    "item_cf": 0.0016420361247947454,
+    "content_based": 0.004934210526315789,
+    "hybrid": 0.0016420361247947454
+  }
+}

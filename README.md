@@ -11,6 +11,8 @@
 | [task3/](./task3) | K-means 与 DBSCAN 聚类算法实现与对比 | Python, NumPy, SciPy, scikit-learn, Matplotlib |
 | [task4/](./task4) | IMDB 电影评论情感分类实验 | Python, Hugging Face Datasets, scikit-learn, PyTorch |
 | [task5/](./task5) | 股票价格预测：ARIMA 与 LSTM 未来 7 日收盘价预测对比 | Python, pandas, statsmodels, PyTorch |
+| [task6/](./task6) | 图文多模态问答：基于 ViLT 的视觉问答实验 | Python, PyTorch, Transformers, Pillow |
+| [task7/](./task7) | 混合推荐系统设计：协同过滤、内容推荐与加权融合 | Python, pandas, NumPy, scikit-learn |
 
 ## 各任务简介
 
@@ -53,6 +55,23 @@
 - [README](./task5/README.md)
 - [Report](./task5/report/实验报告.md)
 - [Source](./task5/src/)
+
+### Task 6
+
+使用 Hugging Face ViLT 预训练模型完成图文多模态问答任务。输入为图片和自然语言问题，输出模型预测答案，并将问答结果保存为 JSON 文件。
+
+- [README](./task6/README.md)
+- [Report](./task6/report/实验报告.md)
+- [Source](./task6/src/)
+
+### Task 7
+
+基于 MovieLens `ml-latest-small` 数据集实现推荐系统，对比基于物品相似度的协同过滤、基于电影类型标签的内容推荐，以及加权混合推荐。实验使用 `Recall@10` 对推荐效果进行评价，并分析不同混合权重对结果的影响。
+
+- [README](./task7/README.md)
+- [Report](./task7/report/实验报告.md)
+- [Source](./task7/src/)
+- [Metrics](./task7/outputs/metrics/metrics.json)
 
 ## 环境配置
 
@@ -98,3 +117,21 @@ python task5/train_arima.py --data-path task5/data/maotai_600519_qfq.csv
 python task5/train_lstm.py --data-path task5/data/maotai_600519_qfq.csv
 python task5/compare_models.py
 ```
+
+### Task 6
+
+```bash
+pip install -r task6/requirements.txt
+python task6/src/infer.py --image task6/examples/Black_dog_retrieving_a_frisbee.jpg --question "What animal is in the image?"
+```
+
+### Task 7
+
+```bash
+pip install -r task7/requirements.txt
+python task7/run_experiment.py
+python task7/run_experiment.py --hybrid-alpha 0.3
+python task7/run_experiment.py --hybrid-alpha 0.7
+```
+
+Task 7 默认会自动下载 MovieLens `ml-latest-small`。如果网络不可用，可手动下载并解压到 `task7/data/ml-latest-small/`，目录中应包含 `ratings.csv` 和 `movies.csv`。
